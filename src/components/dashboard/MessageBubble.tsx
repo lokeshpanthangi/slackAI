@@ -255,7 +255,7 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({
               />
             )}
           </div>
-          <div className={`flex-grow px-2 py-1 rounded-md ${isInThread ? 'w-full' : ''}`}>
+          <div className={`flex-grow px-2 py-1 rounded-md ${isInThread ? 'w-full max-w-full' : ''}`}>
             {/* Message header with user info and timestamp */}
             {!isGrouped && (
               <div className="flex items-center mb-1">
@@ -273,7 +273,7 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({
             )}
             
             {/* Message Content */}
-            <div className="text-white whitespace-pre-wrap break-words"
+            <div className={`text-white whitespace-pre-wrap break-words ${isInThread ? 'w-full max-w-full' : ''}`}
                  dangerouslySetInnerHTML={{ __html: formattedContent }} />
             
             {/* File Attachments */}

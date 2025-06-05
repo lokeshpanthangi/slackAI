@@ -174,65 +174,188 @@ export const initializeTest01Workspace = () => {
     ];
     initialMessages['tech'] = techMessages;
     
-    // Add mock messages for General channel with conversation between Sai and Jyosh
-    const generalMessages = [
+    // Empty general channel as requested
+    initialMessages['general'] = [];
+    
+    // Add mock messages for Misogiai channel about the Misogi competition
+    const misogiaiMessages = [
       {
-        id: `msg-${Date.now()}-1`,
-        channelId: 'general',
-        userId: 'sai',
-        username: 'Sai',
-        avatar: 'SA',
-        content: "Good morning team! I've updated our project roadmap for Q3. We'll be focusing on the new UI redesign and performance optimizations.",
+        id: `msg-${Date.now()}-misogiai-1`,
+        channelId: 'misogiai',
+        userId: 'admin',
+        username: 'Admin',
+        avatar: 'AD',
+        content: "Welcome to the Misogiai channel! This is where we'll be discussing everything related to the Masai Misogi competition. Congratulations to everyone who made it through the first round!",
         timestamp: new Date(Date.now() - 7200000 * 24), // 1 day ago
-        reactions: [{ emoji: '👍', users: ['jyosh'], count: 1 }],
+        reactions: [{ emoji: '🎉', users: ['jyosh', 'sai', 'nani', 'nikith'], count: 4 }],
         replies: [],
         replyCount: 0,
         threadParticipants: []
       },
       {
-        id: `msg-${Date.now()}-2`,
-        channelId: 'general',
+        id: `msg-${Date.now()}-misogiai-2`,
+        channelId: 'misogiai',
         userId: 'jyosh',
         username: 'Jyosh',
         avatar: 'JY',
-        content: "Thanks for the update, Sai. I've been working on those performance issues we discussed. I think I've found a solution for the memory leak in the dashboard component.",
+        content: "Thanks Admin! I'm really excited to be part of this competition. Our team worked really hard on the first challenge.",
         timestamp: new Date(Date.now() - 7100000 * 24), // 1 day ago
-        reactions: [{ emoji: '🚀', users: ['sai'], count: 1 }],
+        reactions: [{ emoji: '💪', users: ['sai', 'nani'], count: 2 }],
         replies: [],
         replyCount: 0,
         threadParticipants: []
       },
       {
-        id: `msg-${Date.now()}-3`,
-        channelId: 'general',
+        id: `msg-${Date.now()}-misogiai-3`,
+        channelId: 'misogiai',
         userId: 'sai',
         username: 'Sai',
         avatar: 'SA',
-        content: "That's great news! Can you share the fix with me? I'd like to review it before we push it to production.",
+        content: "Here's our team's submission for the first round. We built a real-time collaboration tool with WebSocket integration.",
         timestamp: new Date(Date.now() - 7000000 * 24), // 1 day ago
-        reactions: [],
+        reactions: [{ emoji: '👏', users: ['jyosh', 'admin', 'nani', 'nikith'], count: 4 }],
+        fileAttachments: [
+          {
+            id: `file-${Date.now()}-1`,
+            name: 'team_submission.pdf',
+            type: 'pdf',
+            url: 'https://example.com/files/team_submission.pdf',
+            size: '2.4 MB'
+          }
+        ],
         replies: [],
         replyCount: 0,
         threadParticipants: []
       },
       {
-        id: `msg-${Date.now()}-4`,
-        channelId: 'general',
-        userId: 'jyosh',
-        username: 'Jyosh',
-        avatar: 'JY',
-        content: 'Just sent you a PR. The main issue was in how we were handling the WebSocket connections. They weren\'t being properly closed when components unmounted.',
+        id: `msg-${Date.now()}-misogiai-4`,
+        channelId: 'misogiai',
+        userId: 'nani',
+        username: 'Nani',
+        avatar: 'NA',
+        content: "I took some photos during our brainstorming session for the first round challenge. We had so many ideas on the whiteboard!",
         timestamp: new Date(Date.now() - 3600000 * 12), // 12 hours ago
-        reactions: [{ emoji: '👌', users: ['sai'], count: 1 }],
+        reactions: [{ emoji: '❤️', users: ['jyosh', 'sai'], count: 2 }],
+        imageAttachments: [
+          {
+            id: `img-${Date.now()}-1`,
+            url: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12',
+            alt: 'Team brainstorming session'
+          }
+        ],
         replies: [
           {
-            id: `reply-${Date.now()}-1`,
-            channelId: 'general',
-            userId: 'sai',
-            username: 'Sai',
-            avatar: 'SA',
-            content: "Just reviewed the PR. Great catch! I've approved it and added some minor suggestions.",
+            id: `reply-${Date.now()}-misogiai-1`,
+            channelId: 'misogiai',
+            userId: 'nikith',
+            username: 'Nikith',
+            avatar: 'NI',
+            content: "That was such a productive session! I remember we came up with the WebSocket solution during that meeting.",
             timestamp: new Date(Date.now() - 3500000 * 12), // 12 hours ago
+            reactions: [{ emoji: '💡', users: ['nani', 'sai'], count: 2 }],
+            replies: [],
+            replyCount: 0,
+            threadParticipants: []
+          },
+          {
+            id: `reply-${Date.now()}-misogiai-2`,
+            channelId: 'misogiai',
+            userId: 'jyosh',
+            username: 'Jyosh',
+            avatar: 'JY',
+            content: "Yes, and then we spent the next 48 hours implementing it. Those were some intense coding sessions!",
+            timestamp: new Date(Date.now() - 3400000 * 12), // 12 hours ago
+            reactions: [{ emoji: '🔥', users: ['nani', 'sai', 'nikith'], count: 3 }],
+            replies: [],
+            replyCount: 0,
+            threadParticipants: []
+          }
+        ],
+        replyCount: 2,
+        threadParticipants: ['nikith', 'jyosh']
+      },
+      {
+        id: `msg-${Date.now()}-misogiai-5`,
+        channelId: 'misogiai',
+        userId: 'admin',
+        username: 'Admin',
+        avatar: 'AD',
+        content: "Here are the official results from the first round of the Misogi competition. Congratulations to all teams who made it to the next round!",
+        timestamp: new Date(Date.now() - 3600000 * 6), // 6 hours ago
+        reactions: [{ emoji: '🏆', users: ['jyosh', 'sai', 'nani', 'nikith'], count: 4 }],
+        fileAttachments: [
+          {
+            id: `file-${Date.now()}-2`,
+            name: 'round1_results.xlsx',
+            type: 'excel',
+            url: 'https://example.com/files/round1_results.xlsx',
+            size: '1.2 MB'
+          }
+        ],
+        replies: [],
+        replyCount: 0,
+        threadParticipants: []
+      },
+      {
+        id: `msg-${Date.now()}-misogiai-6`,
+        channelId: 'misogiai',
+        userId: 'nikith',
+        username: 'Nikith',
+        avatar: 'NI',
+        content: "We made it to the second round! Our team ranked in the top 10. Here's a screenshot of our score.",
+        timestamp: new Date(Date.now() - 1800000 * 2), // 1 hour ago
+        reactions: [{ emoji: '🎊', users: ['jyosh', 'sai', 'nani', 'admin'], count: 4 }],
+        imageAttachments: [
+          {
+            id: `img-${Date.now()}-2`,
+            url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
+            alt: 'Team score screenshot'
+          }
+        ],
+        replies: [],
+        replyCount: 0,
+        threadParticipants: []
+      },
+      {
+        id: `msg-${Date.now()}-misogiai-7`,
+        channelId: 'misogiai',
+        userId: 'sai',
+        username: 'Sai',
+        avatar: 'SA',
+        content: "I've started preparing for the second round challenge. Here's a document with some initial ideas and research.",
+        timestamp: new Date(Date.now() - 1700000 * 2), // 1 hour ago
+        reactions: [{ emoji: '👍', users: ['jyosh', 'nani', 'nikith'], count: 3 }],
+        fileAttachments: [
+          {
+            id: `file-${Date.now()}-3`,
+            name: 'round2_prep.docx',
+            type: 'word',
+            url: 'https://example.com/files/round2_prep.docx',
+            size: '1.8 MB'
+          }
+        ],
+        replies: [],
+        replyCount: 0,
+        threadParticipants: []
+      },
+      {
+        id: `msg-${Date.now()}-misogiai-8`,
+        channelId: 'misogiai',
+        userId: 'jyosh',
+        username: 'Jyosh',
+        avatar: 'JY',
+        content: "Just sent you all a PR with the WebSocket fixes. The main issue was in how we were handling the WebSocket connections. They weren't being properly closed when components unmounted.",
+        timestamp: new Date(Date.now() - 600000), // 10 minutes ago
+        reactions: [{ emoji: '👌', users: ['sai', 'nani'], count: 2 }],
+        replies: [
+          {
+            id: `reply-${Date.now()}-misogiai-3`,
+            channelId: 'misogiai',
+            userId: 'nani',
+            username: 'Nani',
+            avatar: 'NA',
+            content: "Great catch, Jyosh! I've been debugging this issue for days. Can't believe it was something so simple yet so critical.",
+            timestamp: new Date(Date.now() - 500000), // 8 minutes ago
             reactions: [],
             replies: [],
             replyCount: 0,
@@ -240,75 +363,23 @@ export const initializeTest01Workspace = () => {
           }
         ],
         replyCount: 1,
-        threadParticipants: ['sai']
+        threadParticipants: ['nani']
       },
       {
-        id: `msg-${Date.now()}-5`,
-        channelId: 'general',
-        userId: 'sai',
-        username: 'Sai',
-        avatar: 'SA',
-        content: 'Good morning everyone! The office will be closed next Monday for the holiday. Feel free to work remotely or take the day off if you have sufficient PTO.',
-        timestamp: new Date(Date.now() - 3600000 * 6), // 6 hours ago
-        reactions: [{ emoji: '🎉', users: ['jyosh'], count: 1 }],
-        replies: [],
-        replyCount: 0,
-        threadParticipants: []
-      },
-      {
-        id: `msg-${Date.now()}-6`,
-        channelId: 'general',
-        userId: 'jyosh',
-        username: 'Jyosh',
-        avatar: 'JY',
-        content: 'Just a reminder that we have a team lunch scheduled for Friday at noon! The company is treating us to that new Italian place downtown.',
-        timestamp: new Date(Date.now() - 1800000 * 2), // 1 hour ago
-        reactions: [{ emoji: '🍕', users: ['sai'], count: 1 }],
-        replies: [],
-        replyCount: 0,
-        threadParticipants: []
-      },
-      {
-        id: `msg-${Date.now()}-7`,
-        channelId: 'general',
-        userId: 'sai',
-        username: 'Sai',
-        avatar: 'SA',
-        content: "I'm looking forward to it! I've heard their pasta is amazing.",
-        timestamp: new Date(Date.now() - 1700000 * 2), // 1 hour ago
-        reactions: [{ emoji: '😋', users: ['jyosh'], count: 1 }],
-        replies: [],
-        replyCount: 0,
-        threadParticipants: []
-      },
-      {
-        id: `msg-${Date.now()}-8`,
-        channelId: 'general',
-        userId: 'jyosh',
-        username: 'Jyosh',
-        avatar: 'JY',
-        content: "By the way, I've finished implementing the new notification system. Would you like to test it out before I deploy it?",
-        timestamp: new Date(Date.now() - 600000), // 10 minutes ago
-        reactions: [],
-        replies: [],
-        replyCount: 0,
-        threadParticipants: []
-      },
-      {
-        id: `msg-${Date.now()}-9`,
-        channelId: 'general',
-        userId: 'sai',
-        username: 'Sai',
-        avatar: 'SA',
-        content: "Absolutely! I'll test it right away. Send me the staging URL when it's ready.",
+        id: `msg-${Date.now()}-misogiai-9`,
+        channelId: 'misogiai',
+        userId: 'admin',
+        username: 'Admin',
+        avatar: 'AD',
+        content: "Reminder: The second round of the Misogi competition starts next Monday. Make sure your teams are prepared and all your development environments are set up.",
         timestamp: new Date(Date.now() - 300000), // 5 minutes ago
-        reactions: [{ emoji: '🙌', users: ['jyosh'], count: 1 }],
+        reactions: [{ emoji: '📅', users: ['jyosh', 'sai', 'nani', 'nikith'], count: 4 }],
         replies: [],
         replyCount: 0,
         threadParticipants: []
       }
     ];
-    initialMessages['general'] = generalMessages;
+    initialMessages['misogiai'] = misogiaiMessages;
     
     // Add mock messages for General-test channel with links in blue color
     const generalTestMessages = [
